@@ -10,16 +10,17 @@ public final class ImmutableLinkedList implements ImmutableList {
     public ImmutableLinkedList(Object[] elements) {
         Node currentNoderentNode = head;
         head.setValue(elements[0]);
-        length ++;
-        for (Object element : Arrays.copyOfRange(elements, 1, elements.length)) {
-            final Node nextNode = new Node();
-            nextNode.setValue(element);
+        length++;
+        for (Object element :
+                Arrays.copyOfRange(elements, 1, elements.length)) {
+            final Node NextNode = new Node();
+            NextNode.setValue(element);
 
-            nextNode.setPrevious(currentNoderentNode);
-            currentNoderentNode.setNext(nextNode);
-            length ++;
+            NextNode.setPrevious(currentNoderentNode);
+            currentNoderentNode.setNext(NextNode);
+            length++;
 
-            currentNoderentNode = nextNode;
+            currentNoderentNode = NextNode;
             }
         tail = currentNoderentNode;
     }
@@ -53,7 +54,7 @@ public final class ImmutableLinkedList implements ImmutableList {
         }
         System.arraycopy(c, 0, newArray, index, c.length);
 
-        for(int k = index + c.length; k < length + c.length; k++){
+        for (int k = index + c.length; k < length + c.length; k++) {
             newArray[k] = currentNode.getValue();
             currentNode = currentNode.getNext();
         }
@@ -64,7 +65,7 @@ public final class ImmutableLinkedList implements ImmutableList {
     @Override
     public Object get(int index) {
         Node currentNode = head;
-        for (int i = 0; i < index; i++){
+        for (int i = 0; i < index; i++) {
             currentNode = currentNode.getNext();
         }
         return currentNode.getValue();
@@ -94,7 +95,7 @@ public final class ImmutableLinkedList implements ImmutableList {
     public ImmutableList set(int index, Object e) {
         Object[] newArray = new Object[length];
         Node currentNode = head;
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < length; i++) {
             if (i == index) {
                 newArray[i] = e;
             } else {
@@ -140,7 +141,7 @@ public final class ImmutableLinkedList implements ImmutableList {
     public Object[] toArray() {
         Object[] array = new Object[length];
         Node currentNode = head;
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < length; i++) {
             array[i] = currentNode.getValue();
             currentNode = currentNode.getNext();
         }
