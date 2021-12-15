@@ -15,24 +15,27 @@ public class Node {
 
 
     public Node getPrevious() {
-        return null;
+        return previous;
     }
 
-    public void setPrevious(Node prev) {
+    public void setPrevious(Node newPrevious) {
+        this.previous = newPrevious;
     }
 
     public Object getValue() {
-        return null;
+        return value;
     }
 
-    public void setValue(Object val) {
+    public void setValue(Object newValue) {
+        this.value = newValue;
     }
 
     public Node getNext() {
-        return null;
+        return next;
     }
 
-    public void setNext(Node ne) {
+    public void setNext(Node newNext) {
+        this.next = newNext;
     }
 }
 
