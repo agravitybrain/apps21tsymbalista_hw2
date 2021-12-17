@@ -11,8 +11,8 @@ public final class ImmutableLinkedList implements ImmutableList {
         Node currentNoderentNode = head;
         head.setValue(elements[0]);
         length++;
-        for (Object element:
-                Arrays.copyOfRange(elements, 1, elements.length)) {
+        for (Object element
+                : Arrays.copyOfRange(elements, 1, elements.length)) {
             final Node nextNode = new Node();
             nextNode.setValue(element);
 
