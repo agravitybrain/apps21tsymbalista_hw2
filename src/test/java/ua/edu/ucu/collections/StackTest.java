@@ -25,8 +25,30 @@ public class StackTest {
         assertEquals(1, stack.pop());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void popEmpty() {
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+    }
+
     @Test
     public void peek() {
         assertEquals(5, stack.peek());
+        stack.pop();
+        assertEquals(4, stack.peek());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void peekEmpty() {
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.peek();
     }
 }

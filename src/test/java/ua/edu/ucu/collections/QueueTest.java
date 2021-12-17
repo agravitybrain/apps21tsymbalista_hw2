@@ -16,15 +16,42 @@ public class QueueTest {
     }
 
     @Test
-    public void peek() {
+    public void dequeue() {
         assertEquals(1, queue.dequeue());
         assertEquals(2, queue.dequeue());
         assertEquals(3, queue.dequeue());
     }
 
-    @Test
-    public void dequeue() {
-        assertEquals(1, queue.peek());
+
+    @Test(expected = IllegalArgumentException.class)
+    public void dequeueEmpty() {
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
     }
+
+    @Test
+    public void peek() {
+        assertEquals(1, queue.peek());
+        assertEquals(1, queue.peek());
+
+        assertEquals(1, queue.dequeue());
+        assertEquals(2, queue.peek());
+
+        assertEquals(2, queue.dequeue());
+        assertEquals(3, queue.peek());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void peekEmpty() {
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        queue.peek();
+    }
+
 
 }
