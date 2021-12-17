@@ -11,16 +11,16 @@ public final class ImmutableLinkedList implements ImmutableList {
         Node currentNoderentNode = head;
         head.setValue(elements[0]);
         length++;
-        for (Object element :
+        for (Object element:
                 Arrays.copyOfRange(elements, 1, elements.length)) {
-            final Node NextNode = new Node();
-            NextNode.setValue(element);
+            final Node nextNode = new Node();
+            nextNode.setValue(element);
 
-            NextNode.setPrevious(currentNoderentNode);
-            currentNoderentNode.setNext(NextNode);
+            nextNode.setPrevious(currentNoderentNode);
+            currentNoderentNode.setNext(nextNode);
             length++;
 
-            currentNoderentNode = NextNode;
+            currentNoderentNode = nextNode;
             }
         tail = currentNoderentNode;
     }
